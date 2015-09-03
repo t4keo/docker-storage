@@ -2,7 +2,7 @@
 **This is my second attempt at making a docker and even an automated-build one. This is mostly a Cheatsheet for myself but if it helps you I'm glad**
 
 It creates a debian/jessie storage container.
-I created it to work with my Apache2/Php5 container but I'm sure I will use it in many other ways (e.g. the one I made - [t4keo/apache-php](https://github.com/t4keo/apache-php)).
+I created it to work with my Apache2/Php5 container but I'm sure I will use it in many other ways (e.g. the one I made - [GitHub : t4keo/apache-php](https://github.com/t4keo/docker-apache-php-mail) - [Docker : t4keo/apache-php](https://hub.docker.com/r/t4keo/apache-php-exim/)).
 
 ## How to launch it
 To launch this docker you just have to use one command in order to make it work in background. Since it's a storage container, make sure that you launch it before the apache-php container and even before any container that needs data from it :
@@ -53,16 +53,6 @@ Which tells me something like
 
 I then enter in this folder using WinSCP (or any FTP client) in SFTP and place all the files and folders of my website.
 
-I then go to my apache-php container after launching it (see [t4keo/apache-php](https://github.com/t4keo/apache-php) for more info) and delete the current html folder in the /var/www folder
-``` sh
-$ docker exec -it apache-php bash
-$ rm -R /var/www/html
-```
-Finally I go to the /var/www folder and create the symbolic link
-``` sh
-$ cd /var/www
-$ ln -s /home/html
-```
 And voila
 
 ## How to remove this container
